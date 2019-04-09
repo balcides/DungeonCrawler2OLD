@@ -15,6 +15,6 @@ public class Cursorx : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(cameraRayCaster.layerHit);
+        //print(cameraRayCaster.layerHit);
     }
 }
