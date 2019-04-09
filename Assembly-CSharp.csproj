@@ -158,7 +158,7 @@
      <Compile Include="Assets\Asset Packs\Standard Assets\Vehicles\Car\Scripts\WheelEffects.cs" />
      <Compile Include="Assets\Scripts\CameraFollow2.cs" />
      <Compile Include="Assets\Scripts\CameraRaycaster.cs" />
-     <Compile Include="Assets\Scripts\Cursorx.cs" />
+     <Compile Include="Assets\Scripts\CursorAffordance.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Utilities.cs" />
      <Compile Include="Assets\Tools\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
