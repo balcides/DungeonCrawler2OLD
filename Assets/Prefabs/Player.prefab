@@ -1509,6 +1509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkMoveStopRadius: 0.2
+  attackMoveStopRadius: 3
 --- !u!1 &2796516002045945736
 GameObject:
   m_ObjectHideFlags: 0

@@ -765,6 +765,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2796516002334160808, guid: 3d61491e08df44152a7ccf15e29b39c9,
+        type: 3}
+      propertyPath: walkMoveStopRadius
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2796516002334160808, guid: 3d61491e08df44152a7ccf15e29b39c9,
+        type: 3}
+      propertyPath: attackMoveStopRadius
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d61491e08df44152a7ccf15e29b39c9, type: 3}
 --- !u!4 &1678133807 stripped
