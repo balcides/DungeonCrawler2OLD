@@ -202,6 +202,7 @@
      <None Include="Assets\Tools\ProBuilder\Shader\DiffuseTextureBlend.shader" />
      <None Include="Assets\Asset Packs\Standard Assets\Vehicles\Car\Shaders\ReflectiveDiffuseSpecTransp.shader" />
      <None Include="Assets\Tools\ProBuilder\Shader\pb_StandardVertexColor.shader" />
+     <None Include="Assets\Asset Packs\Synty - Polygon Student Sample\README - Usage Rights for these assets.txt" />
      <None Include="Assets\Tools\ProBuilder\Shader\pb_VertexPicker.shader" />
      <None Include="Assets\Asset Packs\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
      <None Include="Assets\Asset Packs\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
