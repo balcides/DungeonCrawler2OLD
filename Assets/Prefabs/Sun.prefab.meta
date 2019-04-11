@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 0650cd2c943684173aeb382aa85da952
+labels:
+- SceneSetup
 PrefabImporter:
   externalObjects: {}
   userData: 
