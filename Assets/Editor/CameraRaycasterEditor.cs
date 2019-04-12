@@ -6,6 +6,7 @@
 public class CameraRaycasterEditor : Editor
 {
     bool isLayerPrioritiesUnfolded = true; // store the UI state
+    bool isTestLayerUnfold = true; // store the UI state
 
     public override void OnInspectorGUI()
     {
@@ -18,11 +19,14 @@ public class CameraRaycasterEditor : Editor
             {
                 BindArraySize();
                 BindArrayElements();
+                PrintString();
             }
             EditorGUI.indentLevel--;
         }
 
         serializedObject.ApplyModifiedProperties(); // De-serialize back to cameraRaycaster (and create undo point)
+
+    
     }
 
     void BindArraySize()
@@ -43,5 +47,10 @@ public class CameraRaycasterEditor : Editor
             var prop = serializedObject.FindProperty(string.Format("layerPriorities.Array.data[{0}]", i));
             prop.intValue = EditorGUILayout.LayerField(string.Format("Layer {0}:", i), prop.intValue);
         }
+    }
+
+    void PrintString(){
+        var currentText = serializedObject.FindProperty("stringToPrint");
+        currentText.stringValue = EditorGUILayout.TextField("String To Print:", currentText.stringValue);
     }
 }
