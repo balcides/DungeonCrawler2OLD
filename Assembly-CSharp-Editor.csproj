@@ -77,6 +77,7 @@
      <Compile Include="Assets\Asset Packs\Standard Assets\Editor\Water\Water4\SpecularLightingEditor.cs" />
      <Compile Include="Assets\Asset Packs\Standard Assets\Editor\Water\Water4\WaterBaseEditor.cs" />
      <Compile Include="Assets\Asset Packs\Standard Assets\Editor\Water\Water4\WaterEditorUtility.cs" />
+     <Compile Include="Assets\Editor\CameraRaycasterEditor.cs" />
      <Compile Include="Assets\Tools\ProBuilder\About\Editor\pb_AboutWindow.cs" />
      <Compile Include="Assets\Tools\ProBuilder\About\Editor\pb_UpdateAvailable.cs" />
      <Compile Include="Assets\Tools\ProBuilder\About\Editor\pb_UpdateCheck.cs" />

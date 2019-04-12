@@ -23,24 +23,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    // Fixed update is called in sync with physics
-    private void FixedUpdate()
-    {
-        //TODO: Allows Player to remap later (keybind)
-        if(Input.GetKeyDown(KeyCode.G)){
-            isIndirectMode = !isIndirectMode; //toggle mode
-            currentDestination = transform.position; //clear the click target
-        }
-
-        if(isIndirectMode){
-            ProcessDirectMovement();
-
-        }else{
-            ProcessMouseMovement();
-        }
-    }
-
-
     // makes it so you can control with keyboard
     private void ProcessDirectMovement()
     {
@@ -56,29 +38,28 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    //control with mouse
-    private void ProcessMouseMovement()
-    {
-        if (Input.GetMouseButton(0))
-        {
-            clickPoint = cameraRaycaster.hit.point;
-
-            switch (cameraRaycaster.currentLayerHit)
-            {
-                case Layer.Walkable:
-                    currentDestination = ShortDestination(clickPoint, walkMoveStopRadius);
-                    break;
-                case Layer.Enemy:
-                    currentDestination = ShortDestination(clickPoint, attackMoveStopRadius);
-                    print("Not moving to Enemy");
-                    break;
-                default:
-                    print("Unexpected Layer found");
-                    return;
-            }
-        }
-        WalkToDestination();
-    }
+    // //control with mouse
+    // private void ProcessMouseMovement()
+    // {
+    //     if (Input.GetMouseButton(0))
+    //     {
+    //         clickPoint = cameraRaycaster.hit.point;
+    //         switch (cameraRaycaster.currentLayerHit)
+    //         {
+    //             case Layer.Walkable:
+    //                 currentDestination = ShortDestination(clickPoint, walkMoveStopRadius);
+    //                 break;
+    //             case Layer.Enemy:
+    //                 currentDestination = ShortDestination(clickPoint, attackMoveStopRadius);
+    //                 print("Not moving to Enemy");
+    //                 break;
+    //             default:
+    //                 print("Unexpected Layer found");
+    //                 return;
+    //         }
+    //     }
+    //     WalkToDestination();
+    // }
 
     private void WalkToDestination()
     {
