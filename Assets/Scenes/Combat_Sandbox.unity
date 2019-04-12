@@ -97,7 +97,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.25
+    agentRadius: 0.2
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
@@ -105,7 +105,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.083333336
+    cellSize: 0.06666667
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -127,7 +127,7 @@ PrefabInstance:
     - target: {fileID: 8802033395121949831, guid: 23f76607e3600468bada9ea465cc527e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.2504172
+      value: -0.25041723
       objectReference: {fileID: 0}
     - target: {fileID: 8802033395121949831, guid: 23f76607e3600468bada9ea465cc527e,
         type: 3}
@@ -137,7 +137,7 @@ PrefabInstance:
     - target: {fileID: 8802033395121949831, guid: 23f76607e3600468bada9ea465cc527e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.0475736
+      value: -6.5475736
       objectReference: {fileID: 0}
     - target: {fileID: 8802033395121949831, guid: 23f76607e3600468bada9ea465cc527e,
         type: 3}
@@ -422,25 +422,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 266819506}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &390989975 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4088057606736846694, guid: f7a8eb9215bac48b7b158fc53f334f1e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1792990609}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &390989978
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 390989975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d02853f5d34bd8f429969ac34c466d07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  layerPriorities: 0a0000000b00000009000000
 --- !u!4 &400740289 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8802033395121949831, guid: 23f76607e3600468bada9ea465cc527e,
@@ -921,7 +902,7 @@ PrefabInstance:
     - target: {fileID: 8802033395121949831, guid: 23f76607e3600468bada9ea465cc527e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.74958277
+      value: 5.249583
       objectReference: {fileID: 0}
     - target: {fileID: 8802033395121949831, guid: 23f76607e3600468bada9ea465cc527e,
         type: 3}
@@ -1347,8 +1328,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 750101130, guid: f7a8eb9215bac48b7b158fc53f334f1e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7a8eb9215bac48b7b158fc53f334f1e, type: 3}
 --- !u!4 &1973386646 stripped
 Transform:
