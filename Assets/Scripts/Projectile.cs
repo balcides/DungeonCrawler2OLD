@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    void OnTriggerEnter(Collider collider) {
+    [SerializeField] float damageCaused = 10f;
 
-        print("Projectile hit " + collider.gameObject);
+    void OnTriggerEnter(Collider collider) {
+   
+        Component damageableComponent = collider.gameObject.GetComponent(typeof(IDamagable));
+
+        if(damageableComponent){
+            (damageableComponent as IDamagable).TakeDamage(damageCaused);
+        }
         
     }
 }

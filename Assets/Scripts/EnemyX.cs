@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.ThirdPerson;
 
-public class EnemyX : MonoBehaviour
+public class EnemyX : MonoBehaviour, IDamagable
 {
     [SerializeField] float maxHealthPoints = 100f;
     [SerializeField] float attackRadius = 4f;
@@ -14,12 +14,11 @@ public class EnemyX : MonoBehaviour
 
     //Note: not sure why a get is used here, I'm not well versed but later want to look that up
     //  answer, helps protect the var and make it read only so it cant be assigned from anywhere
-    public float healthAsPercentage
+    public float healthAsPercentage{ get { return currentHealthPoints / maxHealthPoints; } }
+
+    public void TakeDamage(float damage)
     {
-        get
-        {
-            return currentHealthPoints / maxHealthPoints;
-        }
+        currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints);
     }
 
     private void Start() {
