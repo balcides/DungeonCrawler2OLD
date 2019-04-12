@@ -162,9 +162,11 @@
      <Compile Include="Assets\Scripts\EnemyHealthBar.cs" />
      <Compile Include="Assets\Scripts\EnemyUI.cs" />
      <Compile Include="Assets\Scripts\EnemyX.cs" />
+     <Compile Include="Assets\Scripts\IDamagable.cs" />
      <Compile Include="Assets\Scripts\PlayerHealthBar.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\PlayerX.cs" />
+     <Compile Include="Assets\Scripts\Projectile.cs" />
      <Compile Include="Assets\Scripts\SpinMe.cs" />
      <Compile Include="Assets\Tools\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
      <Compile Include="Assets\Tools\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
