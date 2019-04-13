@@ -10,6 +10,7 @@ public class EnemyX : MonoBehaviour, IDamagable
     [SerializeField] float chaseRadius = 6f;
     [SerializeField] float damagePerShot = 9f;
     [SerializeField] float secondsBetweenShots = 0.5f;
+    [SerializeField] Vector3 aimOffset = Vector3.up;
     [SerializeField] GameObject projectileToUse = null;
     [SerializeField] GameObject projectileSocket = null;
     GameObject player = null;
@@ -25,6 +26,7 @@ public class EnemyX : MonoBehaviour, IDamagable
     public void TakeDamage(float damage)
     {
         currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints);
+        if(currentHealthPoints <= 0){   Destroy(gameObject);    }
     }
 
 
@@ -32,6 +34,7 @@ public class EnemyX : MonoBehaviour, IDamagable
 
         player = GameObject.FindGameObjectWithTag("Player");
         aiCharacterControl = GetComponent<AICharacterControl>();
+        currentHealthPoints = maxHealthPoints;
     }
 
 
@@ -69,7 +72,7 @@ public class EnemyX : MonoBehaviour, IDamagable
         Projectile projectileComponent = newProjectile.GetComponent<Projectile>();
         projectileComponent.SetDamage(damagePerShot);
 
-        Vector3 unitVectorToPlayer = (player.transform.position - projectileSocket.transform.position).normalized;
+        Vector3 unitVectorToPlayer = (player.transform.position + aimOffset - projectileSocket.transform.position).normalized;
         float projectileSpeed = projectileComponent.projectileSpeed;
         newProjectile.GetComponent<Rigidbody>().velocity = unitVectorToPlayer * projectileSpeed;
     }
