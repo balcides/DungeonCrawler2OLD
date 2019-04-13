@@ -155,9 +155,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa62043a624f34af58f27ff63d7c061f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 100
-  damagerPerHit: 10
-  minTimeBetweenHits: 0.5
+  maxHealthPoints: 1000
+  damagerPerHit: 50
+  minTimeBetweenHits: 1
   maxAttackRange: 2
   enemyLayer: 10
 --- !u!114 &2796516002334160808
