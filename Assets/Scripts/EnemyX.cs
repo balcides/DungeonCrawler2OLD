@@ -9,10 +9,12 @@ public class EnemyX : MonoBehaviour, IDamagable
     [SerializeField] float attackRadius = 4f;
     [SerializeField] float chaseRadius = 6f;
     [SerializeField] float damagePerShot = 9f;
+    [SerializeField] float secondsBetweenShots = 0.5f;
     [SerializeField] GameObject projectileToUse = null;
     [SerializeField] GameObject projectileSocket = null;
     GameObject player = null;
 
+    bool isAttacking = false;
     float currentHealthPoints = 100f;
     AICharacterControl aiCharacterControl = null;
 
@@ -36,9 +38,18 @@ public class EnemyX : MonoBehaviour, IDamagable
     private void Update() {
         
         float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
-        if(distanceToPlayer <= attackRadius){
+        if(distanceToPlayer <= attackRadius && !isAttacking){
 
-            SpawnProjectile();  //TODO: slow this down
+            isAttacking = true;
+            InvokeRepeating("SpawnProjectile", 0f, secondsBetweenShots); //TODO switch to coroutines
+
+        }
+
+        if(distanceToPlayer > attackRadius){
+
+            isAttacking = false;
+            CancelInvoke();
+
         }
 
         if (distanceToPlayer <= chaseRadius)
@@ -56,7 +67,7 @@ public class EnemyX : MonoBehaviour, IDamagable
         // but later when refactoring it's not a bad idea to still give it our best. 
         GameObject newProjectile = Instantiate(projectileToUse, projectileSocket.transform.position, Quaternion.identity);
         Projectile projectileComponent = newProjectile.GetComponent<Projectile>();
-        projectileComponent.damageCaused = damagePerShot;
+        projectileComponent.SetDamage(damagePerShot);
 
         Vector3 unitVectorToPlayer = (player.transform.position - projectileSocket.transform.position).normalized;
         float projectileSpeed = projectileComponent.projectileSpeed;

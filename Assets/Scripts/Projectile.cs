@@ -5,7 +5,14 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float projectileSpeed;   //note other classes can set
-    public float damageCaused = 10f;
+    float damageCaused = 10f;
+
+    //Note; this is written to keep the property public(accessible) without being available in the inspector
+    public void SetDamage(float damage){
+
+        damageCaused = damage;
+    }
+
 
     void OnTriggerEnter(Collider collider) {
    
