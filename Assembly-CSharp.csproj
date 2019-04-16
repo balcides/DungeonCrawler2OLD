@@ -168,6 +168,7 @@
      <Compile Include="Assets\Scripts\PlayerX.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
      <Compile Include="Assets\Scripts\SpinMe.cs" />
+     <Compile Include="Assets\Scripts\Weapon.cs" />
      <Compile Include="Assets\Tools\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
      <Compile Include="Assets\Tools\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
      <Compile Include="Assets\Tools\ProBuilder\API Examples\Misc\HueCube.cs" />

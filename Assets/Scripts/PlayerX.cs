@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class PlayerX : MonoBehaviour, IDamagable
     [SerializeField] float minTimeBetweenHits = 0.5f;
     [SerializeField] float maxAttackRange = 2f;
     [SerializeField] int enemyLayer = 10;
+    [SerializeField] Weapon weaponInUse;
 
     GameObject currentTarget;
     float currentHealthPoints = 100f;
@@ -19,11 +21,27 @@ public class PlayerX : MonoBehaviour, IDamagable
     //  answer, helps protect the var and make it read only so it cant be assigned from anywhere
     public float healthAsPercentage{ get{ return currentHealthPoints / maxHealthPoints; } }
 
-    private void Start() {
+
+    private void Start()
+    {
+        RegisterForMouseClick();
+        currentHealthPoints = maxHealthPoints;
+        PutWeaponInHand();
+    }
+
+    private void PutWeaponInHand()
+    {
+        var weaponsPrefab = weaponInUse.GetWeaponPrefab();
+        var weapon = Instantiate(weaponsPrefab);
+        //TODO: move to correct place and child to hand
+    }
+
+    private void RegisterForMouseClick()
+    {
         cameraRaycaster = FindObjectOfType<CameraRaycaster>();
         cameraRaycaster.notifyMouseClickObservers += OnMouseClick;
-        currentHealthPoints = maxHealthPoints;
     }
+
 
     void OnMouseClick(RaycastHit raycastHit, int layerHit){
         //TODO Double condition enemy layer and distance in one line
