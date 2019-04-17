@@ -13,13 +13,12 @@ namespace RPG.Characters
     {
         [SerializeField] float maxHealthPoints = 100f;
         [SerializeField] float damagerPerHit = 10f;
-        [SerializeField] float minTimeBetweenHits = 0.5f;
-        [SerializeField] float maxAttackRange = 2f;
         [SerializeField] int enemyLayer = 10;
         [SerializeField] AnimatorOverrideController animatorOverrideController;
 
         [SerializeField] Weapon weaponInUse;
 
+        Animator animator;
         GameObject currentTarget;
         float currentHealthPoints = 100f;
         CameraRaycaster cameraRaycaster;
@@ -29,13 +28,23 @@ namespace RPG.Characters
         //  answer, helps protect the var and make it read only so it cant be assigned from anywhere
         public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
 
+        //Note: Never thought about putting public scripts at the top
+        public void TakeDamage(float damage)
+        {
+            currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints);
+            if (currentHealthPoints <= 0)
+            {
+                //print("Player is dead.");
+                //Destroy(gameObject);    
+            }
+        }
 
         private void Start()
         {
             RegisterForMouseClick();
             SetCurrentMaxHealth();
             PutWeaponInHand();
-            OverrideAnimatorController();
+            SetupRuntimeAnimator();
         }
 
 
@@ -45,9 +54,9 @@ namespace RPG.Characters
         }
 
 
-        private void OverrideAnimatorController()
+        private void SetupRuntimeAnimator()
         {
-            var animator = GetComponent<Animator>();
+            animator = GetComponent<Animator>();
             animator.runtimeAnimatorController = animatorOverrideController;
             animatorOverrideController["DEFAULT_ATTACK"] = weaponInUse.GetAttackAnimClip();
         }
@@ -62,6 +71,7 @@ namespace RPG.Characters
             weapon.transform.localRotation = weaponInUse.gripTransform.localRotation;
         }
 
+
         private GameObject DominantHand()
         {
             var dominantHands = GetComponentsInChildren<DominantHand>();
@@ -74,49 +84,46 @@ namespace RPG.Characters
             return dominantHands[0].gameObject;
         }
 
+
         private void RegisterForMouseClick()
         {
             cameraRaycaster = FindObjectOfType<CameraRaycaster>();
             cameraRaycaster.notifyMouseClickObservers += OnMouseClick;
         }
 
-        //TODO: refector to reduce number of lines
+
         void OnMouseClick(RaycastHit raycastHit, int layerHit)
         {
-            //TODO Double condition enemy layer and distance in one line
             if (layerHit == enemyLayer)
             {
                 var enemy = raycastHit.collider.gameObject;
-
-                //Check enemy is in range
-                if ((enemy.transform.position - transform.position).magnitude > maxAttackRange)
-                {
-
-                    return;
+                if(IsTargetInRange(enemy)){
+                    AttackTarget(enemy);
                 }
-
-                currentTarget = enemy;
-
-                var enemyComponent = enemy.GetComponent<EnemyX>();
-                if (Time.time - lastHitTime > minTimeBetweenHits)
-                {
-                    enemyComponent.TakeDamage(damagerPerHit);
-                    lastHitTime = Time.time;
-                }
-
             }
         }
 
-        public void TakeDamage(float damage)
+
+        private void AttackTarget(GameObject target)
         {
-
-            currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints);
-            if (currentHealthPoints <= 0)
+            var enemyComponent = target.GetComponent<EnemyX>();
+            if (Time.time - lastHitTime > weaponInUse.GetMinTimeBetweenHits())
             {
-                //print("Player is dead.");
-                //Destroy(gameObject);    
+                animator.SetTrigger("Attack"); //TODO: set const
+                enemyComponent.TakeDamage(damagerPerHit);
+                lastHitTime = Time.time;
             }
         }
+
+
+        private bool IsTargetInRange(GameObject target)
+        {
+            //Check enemy is in range
+            float distanceToTaget = (target.transform.position - transform.position).magnitude;
+            return distanceToTaget <= weaponInUse.GetMaxAttackRange();
+        }
+
+
     }
 
 }

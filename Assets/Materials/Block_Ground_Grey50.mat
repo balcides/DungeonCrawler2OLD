@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Block_Arch
+  m_Name: Block_Ground_Grey50
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_LightmapFlags: 4
@@ -25,8 +25,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Scale: {x: 100, y: 100}
+        m_Offset: {x: 1, y: 1}
     - _DetailMask:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -37,11 +37,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 100, y: 100}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: fb037c7b29046d9498cdace8ee042a71, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 100, y: 100}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -73,5 +73,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.90588236, g: 0.19999996, b: 0.82362425, a: 1}
+    - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
