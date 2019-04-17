@@ -60,7 +60,6 @@ public class EnemyX : MonoBehaviour, IDamagable
             aiCharacterControl.SetTarget(player.transform);
 
         }else{
- 
             aiCharacterControl.SetTarget(transform);
         }
     }
