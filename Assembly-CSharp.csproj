@@ -53,24 +53,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Asset Packs\RPG Character Animation Pack FREE\Code\CameraController.cs" />
-     <Compile Include="Assets\Asset Packs\RPG Character Animation Pack FREE\Code\GUIControlsFREE.cs" />
-     <Compile Include="Assets\Asset Packs\RPG Character Animation Pack FREE\Code\IKHandsFREE.cs" />
-     <Compile Include="Assets\Asset Packs\RPG Character Animation Pack FREE\Code\RPGCharacterControllerFREE.cs" />
-     <Compile Include="Assets\Asset Packs\RPG Character Animation Pack FREE\Code\RPGCharacterInputControllerFREE.cs" />
-     <Compile Include="Assets\Asset Packs\RPG Character Animation Pack FREE\Code\RPGCharacterMovementControllerFREE.cs" />
-     <Compile Include="Assets\Asset Packs\RPG Character Animation Pack FREE\Code\RPGCharacterWeaponControllerFREE.cs" />
-     <Compile Include="Assets\Asset Packs\RPG Character Animation Pack FREE\SuperCharacterController\Scripts\Gravity.cs" />
-     <Compile Include="Assets\Asset Packs\RPG Character Animation Pack FREE\SuperCharacterController\Scripts\SimpleStateMachine.cs" />
-     <Compile Include="Assets\Asset Packs\RPG Character Animation Pack FREE\SuperCharacterController\SuperCharacterController\Core\BruteForceMesh.cs" />
-     <Compile Include="Assets\Asset Packs\RPG Character Animation Pack FREE\SuperCharacterController\SuperCharacterController\Core\BSPTree.cs" />
-     <Compile Include="Assets\Asset Packs\RPG Character Animation Pack FREE\SuperCharacterController\SuperCharacterController\Core\SuperCharacterController.cs" />
-     <Compile Include="Assets\Asset Packs\RPG Character Animation Pack FREE\SuperCharacterController\SuperCharacterController\Core\SuperCollider.cs" />
-     <Compile Include="Assets\Asset Packs\RPG Character Animation Pack FREE\SuperCharacterController\SuperCharacterController\Core\SuperCollisionType.cs" />
-     <Compile Include="Assets\Asset Packs\RPG Character Animation Pack FREE\SuperCharacterController\SuperCharacterController\Core\SuperMath.cs" />
-     <Compile Include="Assets\Asset Packs\RPG Character Animation Pack FREE\SuperCharacterController\SuperCharacterController\Core\SuperStateMachine.cs" />
-     <Compile Include="Assets\Asset Packs\RPG Character Animation Pack FREE\SuperCharacterController\SuperCharacterController\DebugDraw.cs" />
-     <Compile Include="Assets\Asset Packs\RPG Character Animation Pack FREE\SuperCharacterController\SuperCharacterController\Math3d.cs" />
      <Compile Include="Assets\Asset Packs\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
      <Compile Include="Assets\Asset Packs\SampleScenes\Menu\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\Asset Packs\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
@@ -293,7 +275,6 @@
      <None Include="Assets\Asset Packs\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" />
      <None Include="Assets\Asset Packs\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\DLAA.shader" />
      <None Include="Assets\Asset Packs\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrainDX11.shader" />
-     <None Include="Assets\Asset Packs\RPG Character Animation Pack FREE\SuperCharacterController\SuperCharacterController\README.txt" />
      <None Include="Assets\Asset Packs\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
      <None Include="Assets\Tools\ProBuilder\Shader\pb_VertexShader.shader" />
      <None Include="Assets\Asset Packs\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableBlur.shader" />
