@@ -8,19 +8,19 @@ namespace RPG.Characters
     public class EnemyHealthBar : MonoBehaviour
     {
         RawImage healthBarRawImage = null;
-        EnemyX enemy = null;
+        EnemyX enemyX = null;
 
         // Use this for initialization
         void Start()
         {
-            enemy = GetComponentInParent<EnemyX>(); // Different to way player's health bar finds player
+            enemyX = GetComponentInParent<EnemyX>(); // Different to way player's health bar finds player
             healthBarRawImage = GetComponent<RawImage>();
         }
 
         // Update is called once per frame
         void Update()
         {
-            float xValue = -(enemy.healthAsPercentage / 2f) - 0.5f;
+            float xValue = -(enemyX.healthAsPercentage / 2f) - 0.5f;
             healthBarRawImage.uvRect = new Rect(xValue, 0f, 0.5f, 1f);
         }
     }
