@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float projectileSpeed;   //note other classes can set
+
+    [SerializeField] float projectileSpeed; 
+    [SerializeField] GameObject shooter; //so it can be inspected when paused
+
+    const float DESTROY_DELAY = 0.01f;
     float damageCaused = 10f;
 
     //Note; this is written to keep the property public(accessible) without being available in the inspector
@@ -13,16 +17,31 @@ public class Projectile : MonoBehaviour
         damageCaused = damage;
     }
 
+    public void SetShooter(GameObject shooter){
+        this.shooter = shooter;
+    }
 
     void OnCollisionEnter(Collision collisionInfo)
     {
-        
+        var layerCollidedWith = collisionInfo.gameObject.layer;
+        if (layerCollidedWith != shooter.layer)
+        {
+            DamageIfDamageable(collisionInfo);
+        }
+    }
+
+    private void DamageIfDamageable(Collision collisionInfo)
+    {
         Component damageableComponent = collisionInfo.gameObject.GetComponent(typeof(IDamagable));
 
-        if(damageableComponent){
+        if (damageableComponent)
+        {
             (damageableComponent as IDamagable).TakeDamage(damageCaused);
-        
         }
-        Destroy(gameObject, 0.01f);
+        Destroy(gameObject, DESTROY_DELAY);
+    }
+
+    public float GetDefaultLaunchSpeed(){
+        return projectileSpeed;
     }
 }

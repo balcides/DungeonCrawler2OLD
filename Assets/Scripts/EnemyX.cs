@@ -44,7 +44,7 @@ public class EnemyX : MonoBehaviour, IDamagable
         if(distanceToPlayer <= attackRadius && !isAttacking){
 
             isAttacking = true;
-            InvokeRepeating("SpawnProjectile", 0f, secondsBetweenShots); //TODO switch to coroutines
+            InvokeRepeating("FireProjectile", 0f, secondsBetweenShots); //TODO switch to coroutines
 
         }
 
@@ -64,15 +64,17 @@ public class EnemyX : MonoBehaviour, IDamagable
         }
     }
 
-    void SpawnProjectile(){
+    void FireProjectile(){
         //Note: we don't worry about performance until it's time to look at the profiler, even though we are calling this on Update()
         // but later when refactoring it's not a bad idea to still give it our best. 
+        //TODO : Set refectoring and group this shooting later
         GameObject newProjectile = Instantiate(projectileToUse, projectileSocket.transform.position, Quaternion.identity);
         Projectile projectileComponent = newProjectile.GetComponent<Projectile>();
         projectileComponent.SetDamage(damagePerShot);
+        projectileComponent.SetShooter(gameObject);
 
         Vector3 unitVectorToPlayer = (player.transform.position + aimOffset - projectileSocket.transform.position).normalized;
-        float projectileSpeed = projectileComponent.projectileSpeed;
+        float projectileSpeed = projectileComponent.GetDefaultLaunchSpeed();
         newProjectile.GetComponent<Rigidbody>().velocity = unitVectorToPlayer * projectileSpeed;
     }
 
