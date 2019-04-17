@@ -10,7 +10,9 @@ public class PlayerX : MonoBehaviour, IDamagable
     [SerializeField] float minTimeBetweenHits = 0.5f;
     [SerializeField] float maxAttackRange = 2f;
     [SerializeField] int enemyLayer = 10;
+
     [SerializeField] Weapon weaponInUse;
+    [SerializeField] GameObject weaponSocket;
 
     GameObject currentTarget;
     float currentHealthPoints = 100f;
@@ -32,8 +34,9 @@ public class PlayerX : MonoBehaviour, IDamagable
     private void PutWeaponInHand()
     {
         var weaponsPrefab = weaponInUse.GetWeaponPrefab();
-        var weapon = Instantiate(weaponsPrefab);
-        //TODO: move to correct place and child to hand
+        var weapon = Instantiate(weaponsPrefab, weaponSocket.transform);
+        weapon.transform.localPosition = weaponInUse.gripTransform.localPosition;
+        weapon.transform.localRotation = weaponInUse.gripTransform.localRotation;
     }
 
     private void RegisterForMouseClick()

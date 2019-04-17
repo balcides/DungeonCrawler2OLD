@@ -160,6 +160,8 @@ MonoBehaviour:
   minTimeBetweenHits: 1
   maxAttackRange: 2
   enemyLayer: 10
+  weaponInUse: {fileID: 0}
+  weaponSocket: {fileID: 0}
 --- !u!114 &2796516002334160808
 MonoBehaviour:
   m_ObjectHideFlags: 0
