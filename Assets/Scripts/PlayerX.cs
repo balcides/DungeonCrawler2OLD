@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 public class PlayerX : MonoBehaviour, IDamagable
 {
@@ -12,7 +13,6 @@ public class PlayerX : MonoBehaviour, IDamagable
     [SerializeField] int enemyLayer = 10;
 
     [SerializeField] Weapon weaponInUse;
-    [SerializeField] GameObject weaponSocket;
 
     GameObject currentTarget;
     float currentHealthPoints = 100f;
@@ -34,9 +34,22 @@ public class PlayerX : MonoBehaviour, IDamagable
     private void PutWeaponInHand()
     {
         var weaponsPrefab = weaponInUse.GetWeaponPrefab();
+        GameObject weaponSocket = DominantHand();
         var weapon = Instantiate(weaponsPrefab, weaponSocket.transform);
         weapon.transform.localPosition = weaponInUse.gripTransform.localPosition;
         weapon.transform.localRotation = weaponInUse.gripTransform.localRotation;
+    }
+
+    private GameObject DominantHand()
+    {
+        var dominantHands = GetComponentsInChildren<DominantHand>();
+        int numberOfDominantHands = dominantHands.Length;
+        //handle 0
+        //handle hand
+        //handle greater
+        Assert.AreNotEqual(numberOfDominantHands, 0, "No DominantHand found on player, please add one");
+        Assert.IsFalse(numberOfDominantHands > 1, "More than one DominantHand scripts on Player. Please remove one.");
+        return dominantHands[0].gameObject;
     }
 
     private void RegisterForMouseClick()
@@ -45,7 +58,7 @@ public class PlayerX : MonoBehaviour, IDamagable
         cameraRaycaster.notifyMouseClickObservers += OnMouseClick;
     }
 
-
+    //TODO: refector to reduce number of lines
     void OnMouseClick(RaycastHit raycastHit, int layerHit){
         //TODO Double condition enemy layer and distance in one line
         if(layerHit == enemyLayer){

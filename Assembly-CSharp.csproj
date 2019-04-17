@@ -159,6 +159,7 @@
      <Compile Include="Assets\Scripts\CameraFollow2.cs" />
      <Compile Include="Assets\Scripts\CameraRaycaster.cs" />
      <Compile Include="Assets\Scripts\CursorAffordance.cs" />
+     <Compile Include="Assets\Scripts\DominantHand.cs" />
      <Compile Include="Assets\Scripts\EnemyHealthBar.cs" />
      <Compile Include="Assets\Scripts\EnemyUI.cs" />
      <Compile Include="Assets\Scripts\EnemyX.cs" />

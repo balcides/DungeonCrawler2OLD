@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 1886319265938873101}
   - component: {fileID: 1886319265938873098}
   m_Layer: 9
-  m_Name: Ground
+  m_Name: Terrain_Default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1886319265938873103
 Transform:
